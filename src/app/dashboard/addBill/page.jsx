@@ -91,7 +91,7 @@ export default function AddBill() {
             <label>
                 品目名:
                 <input
-                    type="number"
+                    type="text"
                     value={billName}
                     onChange={(e) => setBillName(e.target.value)}
                     required
