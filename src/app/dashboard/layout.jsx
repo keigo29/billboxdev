@@ -1,19 +1,13 @@
-'use client'; 
-// import { NavLinks } from "@components/NavLinks"
-import dynamic from 'next/dynamic'
+'use client';
 import NavLinks from '@/components/NavLinks'
 
-// const NavLinks = dynamic(() => import('@/components/NavLinks'), { ssr: false })
-
-export default function RootLayout({ children }) {
+export default function DashboardLayout({ children }) {
   return (
-    <html lang="en">
-      <body>
-        <main>
-        <NavLinks/>
+    <div className="dashboard-layout">
+      <NavLinks />
+      <main>
         {children}
-        </main>
-      </body>
-    </html>
+      </main>
+    </div>
   );
 }

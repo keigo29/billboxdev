@@ -8,11 +8,9 @@ import '../styles/globals.scss';
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="ja">
       <body>
-        <main>
         {children}
-        </main>
       </body>
     </html>
   );
