@@ -11,6 +11,9 @@ export default function AddBill() {
     const [unitPrice, setUnitPrice] = useState('');
     const [transferTarget, setTransferTarget] = useState('');
 
+    const itemId =1;
+
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         const billData = {
@@ -21,6 +24,7 @@ export default function AddBill() {
             billNumber,
             billQuantity,
             unitPrice,
+            itemId,
             transferTarget,
         };
         try {
