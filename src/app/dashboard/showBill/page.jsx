@@ -10,7 +10,7 @@ export default function ShowBill() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/getBills`);
+                const res = await fetch('/api/getBills');
                 if(!res.ok) {
                     throw new Error('Failed to fetch data')
                 }
