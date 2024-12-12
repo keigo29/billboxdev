@@ -1,7 +1,40 @@
 'use client';
 import { useParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
+import { Page, Text, View, Document, StyleSheet ,PDFDownloadLink } from "@react-pdf/renderer";
 import supabase from '@/lib/supabaseClient';
+
+
+const styles = StyleSheet.create({
+    page: {
+        padding: 20,
+        flexDirection: 'column',
+      },
+      title: {
+        fontSize: 24,
+        textAlign: 'center',
+        marginBottom: 20,
+      },
+      billItem: {
+        marginBottom: 10,
+        padding: 10,
+        borderBottom: '1px solid #ccc',
+      },
+      billText: {
+        fontSize: 12,
+        marginBottom: 5,
+      }
+});
+ 
+function BillPDF({ bill }){
+    return(
+        <Document>
+            <Page>
+                <Text>請求書一覧</Text>
+            </Page>
+        </Document>
+    )
+}
 
 export default function Invoice() {
     const { id } = useParams();
@@ -43,7 +76,12 @@ export default function Invoice() {
             <p><strong>Deadline:</strong> {bill.deadline}</p>
             <p><strong>Name:</strong> {bill.bill_name}</p>
             <p><strong>Quantity:</strong> {bill.bill_quantity}</p>
-
+                <PDFDownloadLink
+                    document={<BillPDF bill={bill}/>}
+                    fileName={`${bill.billing_amount}_${bill.deadline}.pdf`}
+                >
+                        {({ loading }) => loading ? 'PDFを準備中...' : '請求書一覧をPDFでダウンロード' ``````}
+                </PDFDownloadLink>
         </div>
     );
 }

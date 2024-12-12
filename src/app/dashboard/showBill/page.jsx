@@ -1,6 +1,9 @@
 "use client";
+
+
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
+
 
 export default function ShowBill() {
     const [bills, setBills] = useState([]);
@@ -33,6 +36,7 @@ export default function ShowBill() {
        {bills.length===0 ? (
         <p>請求書がありません。</p>
        ):(
+        <>
         <ul>
         {bills.map((bill)=>(
             <li key={bill.id}>
@@ -44,7 +48,11 @@ export default function ShowBill() {
                 </Link>
             </li>
         ))}
-        </ul>
+           </ul>
+          
+        </>
+      
+
        )}
        </div>
     );
