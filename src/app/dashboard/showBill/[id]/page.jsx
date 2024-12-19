@@ -4,6 +4,18 @@ import { useEffect, useState } from 'react';
 import { Page, Text, View, Document, StyleSheet ,PDFDownloadLink } from "@react-pdf/renderer";
 import supabase from '@/lib/supabaseClient';
 
+import {Zen_Kaku_Gothic_New} from 'next/font/google';
+
+const ZenKakuGothicNew = Zen_Kaku_Gothic_New({
+    weight:'400'
+})
+
+import { registerFont } from '@react-pdf/font';
+
+// フォントの登録
+registerFont('path/to/GenShinGothic-Normal.ttf', {
+  family: 'GenShinGothic',
+});
 
 const styles = StyleSheet.create({
     page: {
@@ -39,8 +51,8 @@ function BillPDF({ bill }){
 export default function Invoice() {
     const { id } = useParams();
     const [bill, setBill] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
 
     useEffect(()=>{
         if(!id) return;

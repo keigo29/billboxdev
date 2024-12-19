@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@react-pdf/font": "^3.0.1",
     "@react-pdf/renderer": "^4.1.5",
     "@supabase/supabase-js": "^2.47.2",
     "next": "^15.0.3",
