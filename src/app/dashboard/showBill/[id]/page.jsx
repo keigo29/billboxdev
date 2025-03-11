@@ -6,16 +6,14 @@ import supabase from '@/lib/supabaseClient';
 
 import {Zen_Kaku_Gothic_New} from 'next/font/google';
 
-const ZenKakuGothicNew = Zen_Kaku_Gothic_New({
-    weight:'400'
-})
+const zenKakuGothicNew = Zen_Kaku_Gothic_New({
+    weight: '400',
+    subsets: ['latin']  // 利用するサブセットを指定
+});
 
 import { registerFont } from '@react-pdf/font';
 
-// フォントの登録
-registerFont('path/to/GenShinGothic-Normal.ttf', {
-  family: 'GenShinGothic',
-});
+
 
 const styles = StyleSheet.create({
     page: {
@@ -92,7 +90,7 @@ export default function Invoice() {
                     document={<BillPDF bill={bill}/>}
                     fileName={`${bill.billing_amount}_${bill.deadline}.pdf`}
                 >
-                        {({ loading }) => loading ? 'PDFを準備中...' : '請求書一覧をPDFでダウンロード' ``````}
+                    {({ loading }) => loading ? 'PDFを準備中...' : '請求書一覧をPDFでダウンロード' ``````}
                 </PDFDownloadLink>
         </div>
     );
