@@ -9,7 +9,7 @@ export default function Home() {
         <div className="header-content">
           {/* Navigation */}
           <nav className="header-nav">
-            <Link href="/" className="header-logo" aria-label="BillBox">
+            <Link href="/dashboard" className="header-logo" aria-label="BillBox">
               <Image
                src="/logo.png" // public フォルダに保存されているファイル
                alt="Logo"
@@ -33,10 +33,10 @@ export default function Home() {
               </a>
             </nav>
             <div className="header-buttons">
-              <a href="#" className="btn-login">
+              <a href="/dashboard" className="btn-login">
                 ログイン
               </a>
-              <a href="#" className="btn-register">
+              <a href="/dashboard" className="btn-register">
                 新規登録
               </a>
             </div>
